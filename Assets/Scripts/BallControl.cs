@@ -8,6 +8,7 @@ public class BallControl : MonoBehaviour {
 	public int jumpHeight = 8;
 	public int superJumpHeight = 12; //height of super jump
 	private bool isFalling = false;
+	public Transform SuperJumpParticles;
 	static int superJumpWaitTime = 180; //wait 180 frames between super jumps
 	 int framesSinceSuperJump = superJumpWaitTime; //counter since last jump starts with 180 
 	
@@ -51,8 +52,10 @@ public class BallControl : MonoBehaviour {
 		
 					Vector3 v = rb.velocity;
 					v.y = superJumpHeight;
+					Transform effect = Instantiate(SuperJumpParticles, transform.position, transform.rotation)as Transform;
 					rb.velocity = v;
 					framesSinceSuperJump = 0;
+					Destroy(effect.gameObject, 6);
 					
 		}
 

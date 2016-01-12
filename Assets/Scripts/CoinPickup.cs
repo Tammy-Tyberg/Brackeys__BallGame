@@ -2,7 +2,10 @@
 using System.Collections;
 
 public class CoinPickup : MonoBehaviour {
+
 	public int coinCounter = 0;
+	public Transform coinEffectParticles;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -18,7 +21,9 @@ public class CoinPickup : MonoBehaviour {
 	void OnTriggerEnter(Collider info){
 
 		if (info.name == "Ball") {
-			Debug.Log("ball collided");
+			Transform effect = Instantiate(coinEffectParticles, transform.position, transform.rotation)as Transform;
+			Destroy(effect.gameObject, 3);
+			//Debug.Log("ball collided");
 			Destroy(gameObject);
 			coinCounter++;
 
