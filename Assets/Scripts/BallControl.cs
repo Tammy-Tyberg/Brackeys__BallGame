@@ -6,7 +6,10 @@ public class BallControl : MonoBehaviour {
 	public int rotationSpeed = 100;
 	public Rigidbody rb, rb1;
 	public int jumpHeight = 8;
+	public int superJumpHeight = 12; //height of super jump
 	private bool isFalling = false;
+	static int superJumpWaitTime = 180; //wait 180 frames between super jumps
+	 int framesSinceSuperJump = superJumpWaitTime; //counter since last jump starts with 180 
 	
 	// Use this for initialization
 	void Start () {
@@ -17,7 +20,8 @@ public class BallControl : MonoBehaviour {
 	
 	// Update is called Bonce per frame
 	void Update () {
-		
+		Debug.Log ("super jump counter is " + framesSinceSuperJump);
+
 		//handle ball rotation 
 		//respond to  A and D keys to rotate
 		float rotation = Input.GetAxis ("Horizontal") * rotationSpeed;
@@ -42,8 +46,19 @@ public class BallControl : MonoBehaviour {
 
 		}
 
+		//added super jump user can use every 180 frames about 3 second 
+		if(Input.GetKeyDown(KeyCode.S) && framesSinceSuperJump >= superJumpWaitTime ){
+		
+					Vector3 v = rb.velocity;
+					v.y = superJumpHeight;
+					rb.velocity = v;
+					framesSinceSuperJump = 0;
+					
+		}
+
 		//not touching an object so in air
 		isFalling = true;
+		framesSinceSuperJump++;
 
 	}
 
