@@ -20,7 +20,7 @@ public class BallControl : MonoBehaviour {
 	
 	// Update is called Bonce per frame
 	void Update () {
-		Debug.Log ("super jump counter is " + framesSinceSuperJump);
+		//Debug.Log ("super jump counter is " + framesSinceSuperJump);
 
 		//handle ball rotation 
 		//respond to  A and D keys to rotate
