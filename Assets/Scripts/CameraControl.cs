@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraControl : MonoBehaviour {
 
 
-   public Transform target;
+   	public Transform target;
 	public int distance = -10; //so camera baxked up ten units in set axis
 	public float lift = 1.5f;
 

@@ -11,10 +11,13 @@ public class BallControl : MonoBehaviour {
 	public Transform SuperJumpParticles;
 	static int superJumpWaitTime = 180; //wait 180 frames between super jumps
 	 int framesSinceSuperJump = superJumpWaitTime; //counter since last jump starts with 180 
-	
+	float distanceToGround;
+
 	// Use this for initialization
 	void Start () {
-		
+
+		//getting distance from center to groun
+		//distanceToGround = Collider.bounds.extents.y;
 		rb = GetComponent<Rigidbody>();
 
 	}
@@ -70,4 +73,11 @@ public class BallControl : MonoBehaviour {
 
 		isFalling = false;
 	}
+
+	//check if on ground return true if yes 
+	/*bool isGrounded(){
+
+		return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
+
+	}*/
 }
