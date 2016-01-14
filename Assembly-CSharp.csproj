@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\GameMaster.cs" />
+     <Compile Include="Assets\GroundControl.cs" />
      <Compile Include="Assets\Scripts\BallControl.cs" />
      <Compile Include="Assets\Scripts\BallHealth.cs" />
      <Compile Include="Assets\Scripts\CameraControl.cs" />
