@@ -19,6 +19,7 @@ public class BallControl : MonoBehaviour {
 		//getting distance from center to groun
 		//distanceToGround = Collider.bounds.extents.y;
 		rb = GetComponent<Rigidbody>();
+		rb1 = GetComponent<Rigidbody> ();
 
 	}
 	
@@ -35,8 +36,12 @@ public class BallControl : MonoBehaviour {
 		//multiply based on rotation speed and based on deltaTime so not on frame rate
 		rb.AddRelativeTorque (Vector3.back * rotation);
 
+		/*
+		float rotation2 = Input.GetAxis ("Vertical") * rotationSpeed;
+		rotation *= Time.deltaTime;
 
-
+		rb1.AddRelativeTorque (Vector3.down * rotation);
+*/
 		//if user presses space for jump
 		if (Input.GetKeyDown (KeyCode.Space)  && !isFalling) {
 

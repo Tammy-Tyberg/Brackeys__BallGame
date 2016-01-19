@@ -4,6 +4,9 @@ using System.Collections;
 public class BallHealth : MonoBehaviour {
 	public int maxFallDistance = -10;
 	private bool isRestarting = false;
+	public AudioClip GameOverSound;
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -26,8 +29,20 @@ public class BallHealth : MonoBehaviour {
 
 	void restartLevel(){
 
-		isRestarting = true;
+
+		isRestarting = true; 
+		AudioSource audio = GetComponent<AudioSource> ();
+		//yield return new WaitForSeconds (audio.clip.length);
+		audio.Play ();
+
 		transform.position = CheckPoint.reachedPoint;
+	
+
 }
+
+
+
+
+	
 
 }

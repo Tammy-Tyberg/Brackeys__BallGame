@@ -11,7 +11,8 @@ public class GameMaster : MonoBehaviour {
 	public int scoreSizeY = 50;
 	// Use this for initialization
 	void Start () {
-	
+
+		currentScore = 0;
 	}
 
 	void Update(){
